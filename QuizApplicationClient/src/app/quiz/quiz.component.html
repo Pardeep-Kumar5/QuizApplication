@@ -1,0 +1,47 @@
+
+<div class="container mt-5">
+  <div class="card">
+      <div class="d-flex justify-content-between p-3">
+          <div class="image">
+              <img src="https://img.icons8.com/color/96/000000/angularjs.png" width="90" alt="logo">
+          </div>
+          <div class="quiz-header">
+              <h4 style="font-family: initial;">{{quizService.GetCategoryNameBySesstion()}}</h4>
+              <span style="font-style: italic;">Welcome {{quizService.getParticipantName()}}</span>
+          </div>
+      </div>
+<!-- Original -->
+<div class="row" *ngIf="quizService.questions && this.quizService.qnProgress != 10">
+  <div class="col s8 offset-s2">
+    <span> {{quizService.displayTimeElapsed()}} sec ⏱</span>
+    <div class="text-right">
+<!-- <h4>Correct Answer{{quizService.Score}}</h4> -->
+    </div>
+    <div class="progress">
+      <div class="determinate" [style.width.%]="(quizService.qnProgress+1)*10"></div>
+    </div>
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <h1><span class="card-title">{{quizService.qnProgress+1}}</span></h1>
+        <h2>{{quizService.questions[quizService.qnProgress].questionText}}</h2>
+      </div>
+      <div class="card-action">
+        <ul class="collection answer">
+          <ng-container *ngFor="let option of quizService.questions[quizService.qnProgress].options;let i = index">
+            <li *ngIf="option != null" class="collection-item" (click)="Answer(quizService.questions[quizService.qnProgress].questionId,i)">
+             <tr>
+<td class="bgcolor">{{option}}</td>
+             </tr>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+<div *ngFor="let status of StatusList">
+  <table class="table table-border table-striped">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Student Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>{{ status.name }}</td>
+        <td>
+          <ng-container  *ngIf="status.status; else pending">
+            <h2 class="text-success">Approved</h2>
+          </ng-container>
+          <ng-template #pending>
+            <h2 class="text-danger">Pending</h2>
+          </ng-template>
+        </td>
+        <td>
+          <ng-container  *ngIf="status.status; else pending1">
+           <button class="btn btn-danger" (click)="UnApproveClick(status.id)"> UnApprove</button>
+          </ng-container>
+          <ng-template #pending1>
+           <button class="btn btn-success" (click)="ApproveClick(status.id)">Approve</button>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

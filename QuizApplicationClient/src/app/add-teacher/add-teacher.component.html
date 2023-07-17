@@ -1,0 +1,25 @@
+<div class="col-xl-6">
+    <div class="card-body p-md-5 text-black">
+      <h3 class="mb-5 text-uppercase">Teacher registration form</h3>
+      <div class="form-outline mb-4">
+        <input type="text" id="form3Example8" [(ngModel)]="newregister.name" class="form-control form-control-lg" />
+        <label class="form-label" for="form3Example8">Name</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="text" id="form3Example8" [(ngModel)]="newregister.address" class="form-control form-control-lg" />
+        <label class="form-label" for="form3Example8">Address</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="text" id="form3Example8" [(ngModel)]="newregister.email" class="form-control form-control-lg" />
+        <label class="form-label" for="form3Example8">Email</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="text" id="form3Example8" [(ngModel)]="newregister.password" class="form-control form-control-lg" />
+        <label class="form-label" for="form3Example8">Password</label>
+      </div>
+      <div class="d-flex justify-content-end pt-3">
+        <button type="button" class="btn btn-light btn-lg">Reset all</button>
+        <button type="button" (click)="TeacherRegister()" class="btn btn-warning btn-lg ms-2">Submit form</button>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-transform bg-black ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <h3 class="text-white" *ngIf="isLoggedIn"><i>Welcome {{quizservice.getParticipantName()}}</i></h3>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item me-3 me-lg-1 active">
+        <a class="nav-link text-white link-hover" routerLink="home">Home <span class="sr-only">(current)</span> <i class="fa fa-home fa-lg"></i>
+        </a>
+      </li>
+      <li class="nav-item me-3 me-lg-1 active" *ngIf="isLoggedIn">
+        <a class="nav-link text-white link-hover" routerLink="quiz">Quiz <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item me-3 me-lg-1 active" *ngIf="IsAdmin">
+        <a class="nav-link text-white link-hover" routerLink="status">Status <span class="sr-only">(current)</span> <i class="fa fa- fa-lg"></i>
+        </a>
+      </li>
+      <li class="nav-item me-3 me-lg-1 active" *ngIf="IsAdmin || IsTeacher">
+        <a class="nav-link text-white link-hover" routerLink="question">Add Questions <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item me-3 me-lg-1 active" *ngIf="isLoggedIn">
+        <a class="nav-link text-white link-hover" routerLink="studentscore">Score <span class="sr-only">(current)</span>
+        </a>
+      </li><li class="nav-item me-3 me-lg-1 active" *ngIf="IsAdmin || IsTeacher">
+        <a class="nav-link text-white link-hover" routerLink="allscore">All Student Score <span class="sr-only">(current)</span> 
+        </a>
+      </li>
+      <li class="nav-item me-3 me-lg-1 active" *ngIf="IsAdmin">
+        <a class="nav-link text-white link-hover" routerLink="addteacher">Add Teacher <span class="sr-only">(current)</span> 
+        </a>
+      </li>
+      <li class="nav-item me-3 me-lg-1 active" *ngIf="IsAdmin">
+        <a class="nav-link text-white link-hover" routerLink="user">User's  <span class="sr-only">(current)</span> 
+        </a>
+      </li>
+    </ul>
+  </div>
+  <a routerLink="register"class="btn btn-outline-success my-2 my-sm-0">Register <i class="fa fa-user-plus"></i></a>
+  <button *ngIf="isLoggedIn" (click)="LogoutClick()" class="btn btn-outline-success my-2 my-sm-0">LogOut <i class="fa fa-sign-in"></i></button>
+   <a routerLink="login" *ngIf="!isLoggedIn"  class="btn btn-outline-success my-2 my-sm-0">login</a>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>

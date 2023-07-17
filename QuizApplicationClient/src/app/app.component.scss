@@ -1,0 +1,10 @@
+.link-hover {
+    transition: color 0.3s, transform 0.3s;
+  }
+  .link-hover:hover {
+    color: aqua !important;
+    transform: scale(1.2);
+  }
+  .bgcolor{
+    background: aqua;
+  }
